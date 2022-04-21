@@ -41,7 +41,7 @@ const EditorPage = () => {
 			});
 		}
 		init();
-	});
+	}, []);
 
 	if (!location.state) {
 		return <Navigate to='/' />;
