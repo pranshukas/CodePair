@@ -24,9 +24,9 @@ io.on('connection', (socket) => {
 
 	socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
 		socket.join(roomId);
-		userSocketMap[username] = roomId;
+		userSocketMap[socket.id] = username;
 		const clients = getAllConnectedClients(roomId);
-
+		console.log(clients);
 		clients.forEach(({ socketId }) => {
 			io.to(socketId).emit(ACTIONS.JOINED, {
 				clients,
