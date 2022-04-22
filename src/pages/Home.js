@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../util/Footer';
 
 const Home = () => {
 	const navigate = useNavigate();
@@ -50,11 +51,7 @@ const Home = () => {
 					</span>
 				</div>
 			</div>
-			<footer>
-				<h4>
-					Built With 💛 by &nbsp;<a href='/'>Pranshu Kashyap</a>
-				</h4>
-			</footer>
+			<Footer />
 		</div>
 	);
 };
