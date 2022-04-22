@@ -22,6 +22,8 @@ const getAllConnectedClients = (roomId) => {
 io.on('connection', (socket) => {
 	console.log('Socket Connected', socket.id);
 
+	// Join Event Scoket
+
 	socket.on(ACTIONS.JOIN, ({ roomId, username }) => {
 		socket.join(roomId);
 		userSocketMap[socket.id] = username;
@@ -34,6 +36,12 @@ io.on('connection', (socket) => {
 				socketId: socket.id,
 			});
 		});
+	});
+
+	// Code Change Event
+
+	socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
+		socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
 	});
 
 	socket.on('disconnecting', () => {
