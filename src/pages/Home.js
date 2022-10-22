@@ -33,6 +33,7 @@ const Home = () => {
 	};
 
 	return (
+		<>
 		<div className='homepage'>
 			<div className='container'>
 				<img className='homepagelogo' src='/logo.png' alt='logo' />
@@ -53,6 +54,7 @@ const Home = () => {
 			</div>
 			<Footer />
 		</div>
+		</>
 	);
 };
 
